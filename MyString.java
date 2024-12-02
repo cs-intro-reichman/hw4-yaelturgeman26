@@ -39,27 +39,23 @@ public class MyString {
             return true;
         }
 
-        if(str2.length()> str1.length()){
+        if(str2.length() > str1.length()){
             return false;
         }
-        int counter = 0;
-        int i=0;
-            for(int j = 0; j < str1.length(); j++){             
-                if(str2.charAt(i) == str1.charAt(j)){
-                    i++;
-                    if(i == str2.length()){
-                        return true;
-                    }
-                    
+        for (int i = 0; i <= str1.length() - str2.length(); i++) {
+            boolean match = true;
+    
+            for (int j = 0; j < str2.length(); j++) {
+                if (str1.charAt(i + j) != str2.charAt(j)) {
+                    match = false;
+                    break;
                 }
-                else{
-                    counter++;
-                    if(i>0){
-                        j = counter;
-                        i=0;
-                    }
-                }   
-        }
+            }
+    
+            if (match) {
+                return true; 
+            }
+        } 
         return false;
     }
 }
